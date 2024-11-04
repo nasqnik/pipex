@@ -47,19 +47,22 @@ void	preprocessing(t_info *info)
 void	handle_here_doc(t_info *info)
 {
 	char	*buffer;
+	char	*limiter;
 	int		file;
 
 	file = open_file(".heredoc_tmp", 'W', info);
+	limiter = ft_strjoin(info->argv[2], "\n");
 	while (1)
 	{
 		write(1, "heredoc> ", 9);
 		buffer = get_next_line(0);
-		if (ft_strncmp(info->argv[2], buffer, ft_strlen(info->argv[2])) == 0)
+		if (ft_strncmp(limiter, buffer, ft_strlen(limiter)) == 0)
 			break ;
 		ft_putstr_fd(buffer, file);
 		free(buffer);
 	}
 	free(buffer);
+	free(limiter);
 	close(file);
 	info->file1 = open_file(".heredoc_tmp", 'R', info);
 	handle_dup2(info, info->file1, -1);
