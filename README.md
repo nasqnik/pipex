@@ -1,20 +1,22 @@
 # pipex - 42 Project
 
 
-**Pipex** is a program that simulates the Unix shell's ability to pipe commands (|), allowing the output of one command to serve as the input to another. 
-The project also supports multiple intermediate commands and handles here-documents for flexible input processing.
+# pipex - 42 Project
 
-`./pipex <infile> <cmd1> <cmd2> <outfile>`
+**pipex** is a program that simulates the Unix shell's ability to pipe commands (`|`), allowing the output of one command to serve as the input to the next. The project also supports multiple intermediate commands and handles here-documents for flexible input processing.
 
-Bonus handles:
-- multiple commands
-'./pipex <infile> <cmd1> <cmd2> <cmd3> ... <outfile>'
-- supports here-documents
-'./pipex here_doc <limiter> <cmd1> <cmd2> <cmd3> ... <outfile>'
+## Usage
 
+```bash
+./pipex <infile> <cmd1> <cmd2> <outfile>
 
+Bonus
+The bonus version includes:
 
-## Features
-- `Command Piping`: Replicates the shell’s piping functionality, connecting multiple commands in a sequence.
-- `Intermediate Commands`: Allows for multiple intermediate commands, creating a complex pipeline.
-- `Here-Documents`: Supports here-documents (<<) to feed custom input directly into the pipeline.
+Multiple Commands: Allows for chaining multiple intermediate commands in the form ./pipex <infile> <cmd1> <cmd2> ... <cmdN> <outfile>.
+Here-Documents: Supports here-documents with ./pipex here_doc LIMITER <cmd1> <cmd2> ... <outfile>, where the input is fed directly until a specified delimiter.
+Features
+Command Piping: Replicates the shell’s piping functionality, connecting multiple commands in a sequence.
+Intermediate Commands: Supports multiple intermediate commands to create complex pipelines.
+Here-Documents: Implements here-documents (<<) to allow flexible custom input directly into the pipeline.
+
